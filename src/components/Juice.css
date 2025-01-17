@@ -1,0 +1,220 @@
+/* Juice.css */
+
+.juice-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #b5e5ff;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+    overflow-y: auto;
+    /* Enable vertical scrolling */
+}
+
+.juice-container {
+    display: flex;
+    flex-direction: column;
+    /* Stack items vertically */
+    padding: 15px;
+    max-width: 800px;
+    /* Reduced max width for single product layout */
+    margin: 0 auto;
+    /* Center the container */
+    background-color: #b5e5ff;
+    /* Clean light gray background */
+}
+
+.juice-card {
+    display: flex;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.juice-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Unified hover effect */
+.juice-card:hover .juice-image,
+.juice-card:hover .juice-details {
+    transition: all 0.6s ease;
+}
+
+/* Image transitions */
+.juice-image {
+    width: 40%;
+    height: auto;
+    transition: transform 1s ease, filter 0.5s ease;
+}
+
+/* 1st Image: Zoom with rotation */
+.juice-card:nth-child(1):hover .juice-image {
+    transform: scale(1.1) rotate(5deg);
+    /* Slight zoom and rotation */
+    filter: saturate(1.2);
+    /* Vibrant color boost */
+}
+
+/* 2nd Image: Tilt and wobble effect */
+.juice-card:nth-child(2):hover .juice-image {
+    transform: rotateZ(-5deg);
+    /* Initial tilt */
+    animation: wobble 1.5s ease infinite;
+    /* Wobble animation */
+}
+
+@keyframes wobble {
+
+    0%,
+    100% {
+        transform: rotateZ(-5deg);
+    }
+
+    50% {
+        transform: rotateZ(5deg);
+    }
+}
+
+/* 3rd Image: Gentle bounce */
+.juice-card:nth-child(3):hover .juice-image {
+    animation: bounce 1s ease infinite;
+    /* Bounce animation */
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* 4th Image: 3D Flip Effect */
+.juice-card:nth-child(4):hover .juice-image {
+    transform: rotateY(360deg);
+    /* Full 3D rotation */
+    animation: glow 1.5s ease infinite;
+    /* Glowing effect */
+}
+
+@keyframes glow {
+
+    0%,
+    100% {
+        filter: drop-shadow(0px 0px 5px #ffae00);
+    }
+
+    50% {
+        filter: drop-shadow(0px 0px 15px #ffae00);
+    }
+}
+
+/* 5th Image: Vibrating Pulse with Perspective */
+.juice-card:nth-child(5):hover .juice-image {
+    transform: perspective(600px) rotateX(25deg) scale(2.5);
+    /* Perspective and zoom */
+    animation: pulse 1.2s ease infinite;
+    /* Pulse effect */
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: perspective(600px) rotateX(15deg) scale(1.2);
+    }
+
+    50% {
+        transform: perspective(600px) rotateX(15deg) scale(1.3);
+    }
+}
+
+/* Juice details */
+.juice-details {
+    padding: 20px;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Comic Sans MS', cursive;
+    /* Fun and engaging font */
+    transition: transform 1s ease;
+    /* Smooth entry */
+}
+
+.juice-card:hover .juice-details {
+    transform: scale(1.05);
+    /* Subtle lift */
+}
+
+/* Text Styling */
+.juice-details h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #e74c3c;
+    /* Vibrant red for titles */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+    /* Elegant shadow */
+    animation: fadeIn 1.5s ease;
+    /* Fade-in effect */
+}
+
+.juice-details p {
+    margin-bottom: 10px;
+    color: #2c3e50;
+    /* Sophisticated dark blue */
+    font-size: 1.1em;
+}
+
+.juice-details .nutrition-info {
+    margin-top: 20px;
+    padding: 10px;
+    background: #f6f6f6;
+    /* Subtle light gray background */
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    /* Subtle gray border */
+    font-family: 'Comic Sans MS', cursive;
+    /* Matches overall theme */
+}
+
+.nutrition-info h3 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    color: #16a085;
+    /* Soft green */
+}
+
+.nutrition-info p {
+    margin-bottom: 5px;
+    color: #34495e;
+    /* Muted dark blue */
+    font-size: 1em;
+}
+
+/* Additional Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Main from "./components/Main";
+import OurStory from "./components/OurStory";
+import Juice from "./components/Juice";
+import Preloader from "./components/Preloader"; // Import Preloader
+import "./App.css";
 
 function App() {
+  const [loading, setLoading] = useState(true); // State to track loading
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {loading ? (
+        <Preloader setLoading={setLoading} /> // Show preloader during loading
+      ) : (
+        <>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="/our-story" element={<OurStory />} />
+            <Route path="/juice" element={<Juice />} />
+          </Routes>
+          <Footer />
+        </>
+      )}
+    </>
   );
 }
 
